@@ -60,4 +60,15 @@ Code_it 7기 초급 프로젝트
 
 Weekdays
 + AM 9:00 ~ PM 6:00 Project 수행
-+ PM 6:00 ~ PM 7:00 협업 일지 작성 
++ PM 6:00 ~ PM 7:00 협업 일지 작성
+
+
+---------------------------------------
+## Version 
+
+> Python: 3.13.9
+> Numpy
+> Pandas
+> OpenCV
+> Pytorch
+> ?
