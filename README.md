@@ -39,15 +39,19 @@ Code_it 7기 초급 프로젝트
 
 ---------------------------------------
 ## **협업 내용**
-> 각 팀원 역할
+> 팀원 역할
 
-Project Manager:          \
+**Project Manager:**
+- 프로젝트의 협업 과정을 매니징하는 역할
+- 애자일/스프린트 방식으로 단위를 분리하고 회의를 주도
 
-Data Engineer:          \
+**Data Engineer:**          
+- 데이터 수집, 정제 및 전처리를 담당하고 데이터 파이프라인을 구축
 
-Model Architect:        \
+**Model Architect:**        
+- 딥러닝 모델을 설계하고 아키텍처를 결정
 
-Experimentation Lead:      \
-
+**Experimentation Lead:**
+- 다양한 실험을 주도하고, 하이퍼파라미터 튜닝 및 모델 성능 평가를 담당
 
 > 협업 과정
