@@ -21,8 +21,8 @@ Code_it 7기 초급 프로젝트
 
 ---------------------------------------
 
-- **폴더 구조**: 
-데이터 Folder 구조 구성 
+##  **폴더 구조**
+> 데이터 Folder 구조 구성 
 
 ```
 ├── Dataset
@@ -43,8 +43,20 @@ Code_it 7기 초급 프로젝트
 
 ---------------------------------------
 
-- **실행 방법**:
- 필요한 패키지, 설치 방법, 학습 및 테스트 실행 방법을 포함
+## **실행 방법**
+
++ Required package version 
+
+> Python = 3.13.9\
+jupyter >= 1.1.1\
+matplotlib >= 3.10.8\
+numpy >= 2.4.1\
+pandas >= 3.0.0\
+scikit-learn >= 1.8.0\
+torch >= 2.10.0
+
+
+설치 방법, 학습 및 테스트 실행 방법을 포함
 
 
 ---------------------------------------
@@ -65,10 +77,8 @@ Code_it 7기 초급 프로젝트
 **Data Engineer:**          
 - 데이터 수집, 정제 및 전처리를 담당하고 데이터 파이프라인을 구축
 
-**Model Architect:**        
+**Model Architect & Experimentation Lead:**        
 - 딥러닝 모델을 설계하고 아키텍처를 결정
-
-**Experimentation Lead:**
 - 다양한 실험을 주도하고, 하이퍼파라미터 튜닝 및 모델 성능 평가를 담당
 
    
@@ -77,21 +87,8 @@ Code_it 7기 초급 프로젝트
 Weekdays
 + AM 9:00 ~ PM 6:00 Project 수행
 + PM 6:00 ~ PM 7:00 협업 일지 작성
++ PM 7:00 Pull Request Merge 수행
+
 
 
 ---------------------------------------
-## Version 
-
-> Python: 3.13.9
-
-> jupyter>=1.1.1
-
-> matplotlib>=3.10.8
-
-> numpy>=2.4.1
-
-> pandas>=3.0.0
-
-> scikit-learn>=1.8.0
-
-> torch>=2.10.0
