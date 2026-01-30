@@ -22,3 +22,5 @@ print('data root :', DATA_ROOT)
 TRAIN_IMG_DIR = DATA_ROOT / "train_images"
 TEST_IMG_DIR = DATA_ROOT / "test_images"
 ANNOTATION_DIR = DATA_ROOT / "train_annotations"
+CACHE_DIR = REPO_ROOT / "cache"
+CACHE_DIR.mkdir(exist_ok=True)
