@@ -25,18 +25,22 @@ Code_it 7기 초급 프로젝트
 > 데이터 Folder 구조 구성 
 
 ```
-├── Dataset
-│   ├── sprint_ai_project1_data
-│   │   │── train_images                # 원본 train images
-│   │   │── train_annotations
-│   │   │   ├── '*_json'                # K-xxxx-yyyy.._json folder
-│   │   │        ├── 'K-*',             # 내부 K-xxxx 
-│   │   │             ├── '*.json'      # json 파일
-│   │   │── test_images                 # 원본 test images
-├── Basic Project [git]
-    ├── main.py
-    ├── REAMME.py
-    ├── ...
+Code_it-Basic-Project/       ← git 지정
+├─ Data/                     ← DATA_ROOT(로컬에서 따로 조성)
+│  ├─ train_images/
+│  ├─ test_images/
+│  └─ train_annotations/
+├─ cache/
+├─ Dataset/
+│  └─ Dataset_load.py
+├─ Model/
+│  └─ yolo11n.pt              ← 모델 기입
+├─ main.py
+├─ REAMME.py
+├─ mapping.py                 
+└─ ...
+
+
 ```
 
 코드, 모델, 결과 등 주요 디렉토리 구조를 그림 또는 리스트 형태로 작성
