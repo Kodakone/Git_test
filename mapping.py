@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+# 경로지정 ---------------------------
 from Dataset.Dataset_load import TRAIN_IMG_DIR, TEST_IMG_DIR, ANNOTATION_DIR, CACHE_DIR, DATA_ROOT
 
 print(TRAIN_IMG_DIR)
@@ -11,6 +12,7 @@ print(len(os.listdir(TEST_IMG_DIR)))
 print(ANNOTATION_DIR)
 print(len(os.listdir(ANNOTATION_DIR)))
 
+# 파일 불러오기 ---------------------------
 # png 이미지파일
 train_img_files = sorted([f for f in os.listdir(TRAIN_IMG_DIR)if f.lower().endswith(".png")])
 print(f"image 파일 개수: {len(train_img_files)}") #232
@@ -70,6 +72,8 @@ for jp in json_files:
 
         # 좌표변환
         x, y, w, h = ann.get("bbox", [0, 0, 0, 0])
+        if w <= 0 or h <= 0:
+            continue
         x1, y1, x2, y2 = x,  y,  x + w,  y + h   # (x_min, y_min, x_max, y_max)
 
         targets_by_filename[fname]["boxes"].append([x1, y1, x2, y2])
@@ -84,25 +88,40 @@ print("샘플 이미지:", sample_name)
 print("박스 개수:", len(targets_by_filename[sample_name]["boxes"]))
 print("라벨:", targets_by_filename[sample_name]["labels"])
 
-# 캐시저장
+# 캐시저장 ---------------------------
 REPO_ROOT = Path(__file__).resolve().parent
 CACHE_DIR = REPO_ROOT / "cache"
 CACHE_DIR.mkdir(exist_ok=True)
 
-cache_path = CACHE_DIR / "targets_by_filename_cache.json"
+# gound truth cache
+gt_cache_path = CACHE_DIR / "targets_by_filename.json"
 
-if cache_path.exists():  #있으면 읽고
-    with open(cache_path, "r", encoding="utf-8") as f:
+if gt_cache_path.exists():  #있으면 읽고
+    with open(gt_cache_path, "r", encoding="utf-8") as f:
         targets_by_filename = json.load(f)
 
     targets_by_filename = defaultdict(
         lambda: {"boxes": [], "labels": []},
         targets_by_filename
     )
-    print("loaded:", cache_path)
+    print("loaded:", gt_cache_path)
 
 else:                    # 없으면 만들기
-    with open(cache_path, "w", encoding="utf-8") as f:
+    with open(gt_cache_path, "w", encoding="utf-8") as f:
         json.dump(dict(targets_by_filename), f)
-    print("saved:", cache_path)
+    print("saved:", gt_cache_path)
 
+# category id cache
+cat_cache_path = CACHE_DIR / "categoryid_to_name.json"
+
+if cat_cache_path.exists():
+    with open(cat_cache_path, "r", encoding="utf-8") as f:
+        categoryid_to_name = json.load(f)
+
+    categoryid_to_name = {int(k): v for k, v in categoryid_to_name.items()}
+    print("loaded:", cat_cache_path)
+
+else:
+    with open(cat_cache_path, "w", encoding="utf-8") as f:
+        json.dump(categoryid_to_name, f, ensure_ascii=False)
+    print("saved:", cat_cache_path)
