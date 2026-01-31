@@ -6,7 +6,7 @@ from pathlib import Path
 load_dotenv()
 
 # 레포루트(Code_it-Basic-Project)
-REPO_ROOT = Path(__file__).resolve().parent 
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 # .env를 정확히 지정해서 로드
 load_dotenv(REPO_ROOT / ".env")

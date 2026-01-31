@@ -14,3 +14,8 @@ wheels/
 cache/
 *.cache
 *.jsonl
+
+# env (loacl only)
+.env
+.env.*
+!.env.example
