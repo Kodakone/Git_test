@@ -3,7 +3,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # 경로지정 ---------------------------
-from Dataset.Dataset_load import TRAIN_IMG_DIR, TEST_IMG_DIR, ANNOTATION_DIR, CACHE_DIR, DATA_ROOT
+from Dataset.Dataset_load import TRAIN_IMG_DIR, TEST_IMG_DIR, ANNOTATION_DIR, CACHE_DIR, REPO_ROOT, DATA_ROOT
 
 print(TRAIN_IMG_DIR)
 print(len(os.listdir(TRAIN_IMG_DIR)))
@@ -89,7 +89,6 @@ print("박스 개수:", len(targets_by_filename[sample_name]["boxes"]))
 print("라벨:", targets_by_filename[sample_name]["labels"])
 
 # 캐시저장 ---------------------------
-REPO_ROOT = Path(__file__).resolve().parent
 CACHE_DIR = REPO_ROOT / "cache"
 CACHE_DIR.mkdir(exist_ok=True)
 
