@@ -23,3 +23,6 @@ cache/
 
 # Data 원본 (local only)
 data/
+Data/
+runs/
+Data_yolo/
