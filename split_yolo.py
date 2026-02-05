@@ -156,12 +156,21 @@ def save_split(cache_dir: Path, train_fnames: list[str], val_fnames: list[str],
 # 이미지 복사 ----------------------------------
 def copy_images(src_img_dir: Path, dst_img_dir: Path, fnames: list[str]):
     dst_img_dir.mkdir(parents=True, exist_ok=True)
+
+    missing = 0
     for fname in fnames:
         src = src_img_dir / fname
         dst = dst_img_dir / fname
+
         if not src.exists():
-            raise FileNotFoundError(f"missing image: {src}")
-        shutil.copy2(src, dst)
+            missing += 1
+            print(f"[WARN] image missing: {src}")
+            continue
+
+        if not dst.exists():
+            shutil.copy2(src, dst)
+
+    print(f"[copy_images] done. missing: {missing}/{len(fnames)}")
 
 # 라벨 변환+저장 ----------------------------------
 def save_split_labels_yolo(
