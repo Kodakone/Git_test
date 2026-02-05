@@ -305,8 +305,16 @@ def build_yolo_dataset(
 # ============================================================================
 # v1 scaffold 만들기(v0 복사+증강본 추가용) ----------------------------------
 def make_aug_scaffold(v0_root: Path, v1_root: Path, cls_to_name: list[str], force: bool = False):
-    if v1_root.exists() and any(v1_root.iterdir()) and not force:
-        print(f"[v1] already exists and not empty: {v1_root}")
+    train_dir = v1_root / "images" / "train"
+    val_dir   = v1_root / "images" / "val"
+
+    scaffold_ready = (
+        train_dir.exists() and any(train_dir.iterdir()) and
+        val_dir.exists() and any(val_dir.iterdir())
+    )
+
+    if scaffold_ready and not force:
+        print(f"[v1] scaffold already ready: {v1_root}")
         print("[v1] scaffold step skipped (set force=True to override).")
         return
     
@@ -387,3 +395,4 @@ print("aug_train images:", len(list((V1_ROOT /'images/train').glob('*.png'))))
 print("aug_val images  :", len(list((V1_ROOT /'images/val').glob('*.png'))))
 print("aug_train labels:", len(list((V1_ROOT /'labels/train').glob('*.txt'))))
 print("aug_val labels  :", len(list((V1_ROOT /'labels/val').glob('*.txt'))))
+
