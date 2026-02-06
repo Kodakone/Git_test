@@ -3,7 +3,7 @@ import os
 from collections import defaultdict
 
 # 경로지정 ---------------------------
-from Dataset.Dataset_load import (
+from dataset_load import (
     ANNOTATION_DIR,
     CACHE_DIR,
     TEST_IMG_DIR,
@@ -31,7 +31,7 @@ for root, dirs, files in os.walk(ANNOTATION_DIR):
         if file.lower().endswith(".json"):
             json_files.append(os.path.join(root, file))
 
-print("총 json 개수:", len(json_files))  # 763
+print("총 json 개수:", len(json_files))  # 771 (0206 수정)
 
 
 # ground truth역할 ---------------------------
@@ -97,7 +97,7 @@ print("박스 개수:", len(targets_by_filename[sample_name]["boxes"]))
 print("라벨:", targets_by_filename[sample_name]["labels"])
 
 
-# gound truth cache
+# ground truth cache
 gt_cache_path = CACHE_DIR / "targets_by_filename.json"
 
 if gt_cache_path.exists():  # 있으면 읽고

@@ -1,4 +1,4 @@
-Code_it 7기 초급 프로젝트 
+Code_it 7기 초급 프로젝트
 =============
 
 ## **프로젝트 개요**
@@ -22,24 +22,26 @@ Code_it 7기 초급 프로젝트
 ---------------------------------------
 
 ##  **폴더 구조**
-> 데이터 Folder 구조 구성 
+> 데이터 Folder 구조 구성
 
 ```
-Code_it-Basic-Project/       ← git 지정
-├─ Data/                     ← DATA_ROOT(로컬에서 따로 조성)
-│  ├─ train_images/
-│  ├─ test_images/
-│  └─ train_annotations/
-├─ cache/
-├─ Dataset/
-│  └─ Dataset_load.py
-├─ Model/
-│  └─ yolo11n.pt              ← 모델 기입
-├─ main.py
-├─ REAMME.py
-├─ mapping.py                 
-└─ ...
-
+BASIC PROJECT
+├── config/                       # 설정 파일: requirements, precommit 등 전부
+├── data/                         # 데이터 모음 (git: x)
+│   ├── raw/                        # 원본 data 기입
+│   │    ├── train_images/            # train 이미지 (.png)
+│   │    ├── train_annotations/       # train annotation (.json)
+│   │    └── test_images/             # test 이미지 (.png)
+│   ├── yolo_dataset/               # YOLO data 원본 (.ymal)
+│   └── yolo_dataset_aug/           # 증강 data 기입 (원본 + 전체 + 희소 + Copy_Paste)
+├── dataloader/                   # 데이터 불러오기 관련 folder
+│   ├── dataset_load.py             # .env 파일 경로 지정
+│   ├── mapping.py                  # image & annotation 매핑 (gt)
+│   └── split_yolo.py               # train / valid split & .ymal 변형 (gt)
+├── model/                        # Model (YOLOv11 nano ~ large)
+├── .gitignore
+├── REAMME.py
+└── ...
 
 ```
 
@@ -49,7 +51,7 @@ Code_it-Basic-Project/       ← git 지정
 
 ## **실행 방법**
 
-+ Required package version 
++ Required package version
 
 > Python = 3.13.9\
 jupyter >= 1.1.1\
@@ -65,7 +67,7 @@ torch >= 2.10.0
 
 ---------------------------------------
 
-- **모델 설명 및 결과**: 
+- **모델 설명 및 결과**:
 각 모델(From Scratch, VGGNet, ResNet)의 구현 내용, 학습 결과, 성능 비교 등
 
 
@@ -78,14 +80,14 @@ torch >= 2.10.0
 - 프로젝트의 협업 과정을 매니징하는 역할
 - 애자일/스프린트 방식으로 단위를 분리하고 회의를 주도
 
-**Data Engineer:**          
+**Data Engineer:**
 - 데이터 수집, 정제 및 전처리를 담당하고 데이터 파이프라인을 구축
 
-**Model Architect & Experimentation Lead:**        
+**Model Architect & Experimentation Lead:**
 - 딥러닝 모델을 설계하고 아키텍처를 결정
 - 다양한 실험을 주도하고, 하이퍼파라미터 튜닝 및 모델 성능 평가를 담당
 
-   
+
 > 협업 과정
 
 Weekdays
