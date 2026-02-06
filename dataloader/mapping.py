@@ -3,7 +3,7 @@ import os
 from collections import defaultdict
 
 # 경로지정 ---------------------------
-from dataloader.dataset_load import (
+from dataset_load import (
     ANNOTATION_DIR,
     CACHE_DIR,
     TEST_IMG_DIR,

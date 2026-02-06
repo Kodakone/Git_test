@@ -7,10 +7,9 @@ from pathlib import Path
 
 import numpy as np
 import yaml
+from dataset_load import CACHE_DIR, DATA_ROOT, TRAIN_IMG_DIR
 from iterstrat.ml_stratifiers import MultilabelStratifiedShuffleSplit
 from PIL import Image
-
-from dataloader.dataset_load import CACHE_DIR, DATA_ROOT, TRAIN_IMG_DIR
 
 # 캐시 불러오기 ----------------------------------
 gt_cache_path = CACHE_DIR / "targets_by_filename.json"
