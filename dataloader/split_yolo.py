@@ -388,7 +388,7 @@ def compute_max_class_id(labels_root: Path) -> int:
 
 
 # 실행! ----------------------------------
-V0_ROOT = DATA_ROOT / "yolo_dataset"
+V0_ROOT = DATA_ROOT.parent / "yolo_dataset"
 IMG_DIR = TRAIN_IMG_DIR
 
 train_fnames, val_fnames, catid_to_cls, cls_to_name = build_yolo_dataset(
@@ -410,7 +410,7 @@ print("max class_id:", max_id, "| expected:", len(cls_to_name) - 1)
 
 # ===========================================================
 # v1 scaffold (최초 1회만) ----------------------------------
-V1_ROOT = DATA_ROOT / "yolo_dataset_aug"
+V1_ROOT = DATA_ROOT.parent / "yolo_dataset_aug"
 
 make_aug_scaffold(
     v0_root=V0_ROOT,
